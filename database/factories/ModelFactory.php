@@ -26,3 +26,11 @@ $factory->define(App\Dog::class, function (Faker\Generator $faker) {
         'age' => $faker->randomDigit,
     ];
 });
+
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => factory(App\User::class)->create()->id,
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph,
+    ];
+});
